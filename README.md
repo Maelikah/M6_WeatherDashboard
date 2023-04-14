@@ -1,4 +1,4 @@
-# <Your-Project-Title>
+# Weather Dashboard
 
 ## Description
 ---
@@ -11,27 +11,28 @@ Installation not required, simply open up the JavaScript Fundamentals html file 
 ## Usage
 ---
 
-- GIVEN I am taking a code quiz
-    - WHEN I click the start button
-        - THEN a timer starts and I am presented with a question
-    - WHEN I answer a question
-        - THEN I am presented with another question
-    - WHEN I answer a question incorrectly
-        - THEN time is subtracted from the clock
-    - WHEN all questions are answered or the timer reaches 0
+- GIVEN a weather dashboard with form inputs
+    - WHEN I search for a city
+        - THEN I am presented with current and future conditions for that city
+        - THEN that city is added to the search history
+    - WHEN I view for current weather conditions for that city
+        - THEN am presented with the city name, date, icon representing weather, temperature, wind speed and humidity
+    - WHEN I view future weather conditions for that city
+        - THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+    - WHEN I click on a city in the seaerch history
         - THEN the game is over
     - WHEN the game is over
-        - THEN I can save my initials and my score
+        - THEN I am again presented with current and future conditions for that cit
 
 ---
 
 The github URL containing the code for this challenge is located at:
 
-https://github.com/Maelikah/M4_JavaScriptFundamentalsQuiz
+https://github.com/Maelikah/M6_WeatherDashboard
 
 The github pages URL containing the deployed webpage is located at:
 
-https://maelikah.github.io/M4_JavaScriptFundamentalsQuiz
+https://maelikah.github.io/M6_WeatherDashboard
 
 Here is a screenshot of the deployed webpage for reference:
 
@@ -41,8 +42,8 @@ Here is a screenshot of the deployed webpage for reference:
 
 ## Credits
 ---
-- https://www.w3schools.com/js/js_timing.asp
-- https://blog.logrocket.com/localstorage-javascript-complete-guide/
+- https://uigradients.com/#CrystalClear
+- https://bulma.io/
 - https://www.freecodecamp.org/news/javascript-foreach-how-to-loop-through-an-array-in-js/
 - https://www.freecodecamp.org/news/javascript-dom-manipulation/
 - https://www.scaler.com/topics/javascript-dom-manipulation/

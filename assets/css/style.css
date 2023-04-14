@@ -1,0 +1,16 @@
+:root {
+    --bodybgc: #f1ecdf;
+    --hourbgc:#332b16;
+    --savebtn: #1f3213;
+    --delbtn: #700808 ;
+    --hourborderbgc: #221c0e;
+    --icons: #f9b000;
+    --pastbgc:#e0d5b7;
+    --presentbgc:#947d3f;
+    --futurebgc:#c7b37e;
+}
+
+.header {
+    background: linear-gradient(to right, #155799, #159957); 
+    color: white
+}
