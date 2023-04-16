@@ -42,7 +42,7 @@ Here is a screenshot of the deployed webpage for reference:
 
 ## Credits
 ---
-- https://uigradients.com/#CrystalClear
+- https://uigradients.com/
 - https://bulma.io/
 - https://www.freecodecamp.org/news/javascript-foreach-how-to-loop-through-an-array-in-js/
 - https://www.freecodecamp.org/news/javascript-dom-manipulation/

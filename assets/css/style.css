@@ -8,17 +8,14 @@
     --pastbgc:#e0d5b7;
     --presentbgc:#947d3f;
     --futurebgc:#c7b37e;
+    --li: #155799;
 }
 
-.custom-header {
+.custom-hnf {
     background: linear-gradient(to right, #155799, #159957); 
     color: white
 }
 
-.custom-footer {
-    background: linear-gradient(to right, #155799, #159957); 
-    color: white
-}
 
 .custom-bgc {
     background-color: maroon;
@@ -28,4 +25,11 @@
 .custom-divider {
     border-top: 1px solid gray;
     border-radius: 5px;
+}
+
+.custom-li {
+    background-color: var(--li);
+    border-radius: 5px;
+    padding: 3px;
+    margin-bottom: 1rem;
 }

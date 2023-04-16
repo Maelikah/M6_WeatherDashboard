@@ -15,13 +15,13 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <header class="custom-header m-3 p-3 has-text-centered box ">
+    <header class="custom-hnf m-3 p-3 has-text-centered box ">
         <h1 class="is-size-1-desktop has-text-weight-bold ">Weather Dashboard</h1>
     </header>
     <main>
         <!-- Container that will store two columns with tiles inside -->
         <div class="tile is-ancestor ">
-            <!-- Container that will contain a tall column to store search data -->
+            <!-- Container that will contain a tall column to store search data in several divs -->
             <div class="tile is-parent is-2-desktop m-3  ">
                 <div class="tile is-child box notification is-dark">
                     <div class="content ">
@@ -36,10 +36,16 @@
                             </button>
                         </div>
                         <hr class="custom-divider"> 
-                            <ul>
-                                <li>hello</li>
-                                <li>Where is my fing divider....</li>
-                            </ul> 
+                    </div>
+                    <div class="has-text-centered">
+                        <ul>
+                            <li class="custom-li">City 1</li>
+                            <li class="custom-li">City 2</li>
+                            <li class="custom-li">City 3</li>
+                            <li class="custom-li">City 4</li>
+                            <li class="custom-li">City 5</li>
+                        </ul>
+                        <hr class="custom-divider"> 
                     </div>
                 </div>
             </div>
@@ -94,7 +100,7 @@
         </div>
     </div>
         
-    <footer class="custom-footer m-3 p-3 has-text-centered box">
+    <footer class="custom-hnf m-3 p-3 has-text-centered box">
         <p>Weather Dashboard &copy; 2023. All rights reserved.</p>
     </footer>
 
@@ -157,7 +163,7 @@
 
             <div class="col-md col-xl-8">
                 <!-- Project Table -
-                <table class="table table-custom">
+                <table class="table">
                 <thead>
                     <tr>
                     <th>Name</th>
