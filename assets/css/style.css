@@ -15,7 +15,17 @@
     color: white
 }
 
+.custom-footer {
+    background: linear-gradient(to right, #155799, #159957); 
+    color: white
+}
+
 .custom-bgc {
     background-color: maroon;
     color: white;
+}
+
+.custom-divider {
+    border-top: 1px solid gray;
+    border-radius: 5px;
 }

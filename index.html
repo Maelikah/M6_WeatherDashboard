@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Hello Bulma!</title>
+    <title>Weather Dashboard - Simple app to get current and forecast weather</title>
     <link rel="stylesheet" href="./assets/css/reset.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link
@@ -15,60 +15,88 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <header class="custom-header m-3 p-3 has-text-centered ">
-        <h1 class = "is-size-1 has-text-weight-bold ">Weather Dashboard</h1>
+    <header class="custom-header m-3 p-3 has-text-centered box ">
+        <h1 class="is-size-1-desktop has-text-weight-bold ">Weather Dashboard</h1>
     </header>
     <main>
-        <div class="tile is-ancestor">
-            <div class="tile is-parent is-8">
-                <article class="tile is-child notification is-info box">
-                    <p class="title">Main column</p>
+        <!-- Container that will store two columns with tiles inside -->
+        <div class="tile is-ancestor ">
+            <!-- Container that will contain a tall column to store search data -->
+            <div class="tile is-parent is-2-desktop m-3  ">
+                <div class="tile is-child box notification is-dark">
+                    <div class="content ">
+                        <p class="is-size-4-desktop title has-text-centered">Search for a City</p>
+                        <div class="content buttons is-centered ">
+                            <input class="input mb-5">
+                            <button class="button is-responsive is-link is-hover">
+                                <span class="icon">
+                                    <i class="fas fa-search-location"></i>
+                                </span>
+                                <span>Search</span> 
+                            </button>
+                        </div>
+                        <hr class="custom-divider"> 
+                            <ul>
+                                <li>hello</li>
+                                <li>Where is my fing divider....</li>
+                            </ul> 
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- Wide column that contains two vertical tiles that will hold current and forecast weather data -->
+            <div class="tile is-parent is-10 is-vertical my-3 m-1">
+                <!-- Vertical Tile for current weather data -->
+                <article class="tile is-child is box color notification is-dark">
+                    <p class="title">Selected City Current Weather </p>
                     <p class="subtitle">With some content</p>
                     <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+                    </div>
+                    <div class="content">
+                        <p class="title">More data if needed: </p>
+                        <p class="subtitle">With some content</p>
                     </div>
                 </article>
-                </div>
-            <div class="tile is-parent">
-            <article class="tile is-child notification is-danger box">
-                <div class="content">
-                <p class="title has-text-white">Tall column</p>
-                <p class="subtitle has-text-white">With even more content</p>
-                <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
-                    <p>Suspendisse varius ligula in molestie lacinia. Maecenas varius eget ligula a sagittis. Pellentesque interdum, nisl nec interdum maximus, augue diam porttitor lorem, et sollicitudin felis neque sit amet erat. Maecenas imperdiet felis nisi, fringilla luctus felis hendrerit sit amet. Aenean vitae gravida diam, finibus dignissim turpis. Sed eget varius ligula, at volutpat tortor.</p>
-                    <p>Integer sollicitudin, tortor a mattis commodo, velit urna rhoncus erat, vitae congue lectus dolor consequat libero. Donec leo ligula, maximus et pellentesque sed, gravida a metus. Cras ullamcorper a nunc ac porta. Aliquam ut aliquet lacus, quis faucibus libero. Quisque non semper leo.</p>                </div>
-                </div>
-            </article>
+                <!-- Vertical Tile for 5 day weather forecast -->
+                <article class="tile is-child box notification is-dark">
+                    <p class="title">5 day Weather Forecast</p>
+                    <div class="columns is-flex is-flex-wrap-wrap  is-justify-content-space-between">
+                        <div class="tile is-child box is-12-mobile is-2">
+                            <p class="">One</p>
+                            <p class="">Subtitle</p>
+                        </div>
+                        <div class="tile is-child box is-12-mobile is-2">
+                            <p class="">Two</p>
+                            <p class="">Subtitle</p>
+                        </div>
+                        <div class="tile is-child box is-12-mobile is-2">
+                            <p class="">Three</p>
+                            <p class="">Subtitle</p>
+                        </div>
+                        <div class="tile is-child box is-12-mobile is-2">
+                            <p class="">Four</p>
+                            <p class="">Subtitle</p>
+                        </div>
+                        <div class="tile is-child box is-12-mobile is-2">
+                            <p class="">Five</p>
+                            <p class="">Subtitle</p>
+                        </div>
+                    </div>
+                    <div class="content"></div>
+                </article>
             </div>
+    
+            
         </div>
+    </div>
         
-        <div class="tile is-ancestor">
-            <div class="tile is-parent">
-            <article class="tile is-child box">
-                <p class="title">One</p>
-                <p class="subtitle">Subtitle</p>
-            </article>
-            </div>
-            <div class="tile is-parent">
-            <article class="tile is-child box">
-                <p class="title">Two</p>
-                <p class="subtitle">Subtitle</p>
-            </article>
-            </div>
-            <div class="tile is-parent">
-            <article class="tile is-child box">
-                <p class="title">Three</p>
-                <p class="subtitle">Subtitle</p>
-            </article>
-            </div>
-            <div class="tile is-parent">
-            <article class="tile is-child box">
-                <p class="title">Four</p>
-                <p class="subtitle">Subtitle</p>
-            </article>
-            </div>
-        </div>
+    <footer class="custom-footer m-3 p-3 has-text-centered box">
+        <p>Weather Dashboard &copy; 2023. All rights reserved.</p>
+    </footer>
 
 
 
@@ -98,11 +126,10 @@
 
 
 
-
-
+<!-- 
         <div class="row">
             <div class="col-md col-xl-4">
-                <!-- Add project form and instructions -->
+                <!-- Add project form and instructions 
                 <div class="card mb-3">
                 <h2 class="h4 card-header custom-card-header">Instructions</h2>
                 <div class="card-body">
@@ -129,7 +156,7 @@
             </div>
 
             <div class="col-md col-xl-8">
-                <!-- Project Table -->
+                <!-- Project Table -
                 <table class="table table-custom">
                 <thead>
                     <tr>
@@ -163,13 +190,6 @@
             </div>
             </div>
 
-    </main>
-
-        
-        
-
-
-
-
+    </main> -->
 </body>
 </html>
