@@ -10,7 +10,12 @@
     --futurebgc:#c7b37e;
 }
 
-.header {
+.custom-header {
     background: linear-gradient(to right, #155799, #159957); 
     color: white
+}
+
+.custom-bgc {
+    background-color: maroon;
+    color: white;
 }
