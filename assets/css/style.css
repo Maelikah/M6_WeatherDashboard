@@ -4,6 +4,7 @@
     --clickablehover: #739ac2;
     --searchbox: #0d345c;
     --weatherbox: #454545;
+    --forecastbox: #747474;
 }
 
 body {
@@ -21,6 +22,10 @@ body {
 
 .custom-weather {
     background-color: var(--weatherbox);
+}
+
+.custom-forecast {
+    background-color: var(--forecastbox);
 }
 
 .custom-divider {
