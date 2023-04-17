@@ -1,25 +1,26 @@
 :root {
-    --bodybgc: #f1ecdf;
-    --hourbgc:#332b16;
-    --savebtn: #1f3213;
-    --delbtn: #700808 ;
-    --hourborderbgc: #221c0e;
-    --icons: #f9b000;
-    --pastbgc:#e0d5b7;
-    --presentbgc:#947d3f;
-    --futurebgc:#c7b37e;
-    --li: #155799;
+    --bodybgc: #e9e9e9;
+    --clickable: #155799;
+    --clickablehover: #739ac2;
+    --searchbox: #0d345c;
+    --weatherbox: #A2A2A2;
+}
+
+body {
+    background-color: var(--bodybgc);
 }
 
 .custom-hnf {
-    background: linear-gradient(to right, #155799, #159957); 
+    background: linear-gradient(to right, #1e3c72, #2a5298); 
     color: white
 }
 
+.custom-search {
+    background-color: var(--searchbox);
+}
 
-.custom-bgc {
-    background-color: maroon;
-    color: white;
+.custom-weather {
+    background-color: var(--weatherbox);
 }
 
 .custom-divider {
@@ -28,8 +29,30 @@
 }
 
 .custom-li {
-    background-color: var(--li);
     border-radius: 5px;
     padding: 3px;
     margin-bottom: 1rem;
+    border: 1px solid black;
+    color: white;
+}
+
+.custom-clickable {
+    cursor: pointer;
+    background-color: var(--clickable)
+}
+
+.custom-clickable:hover {
+    background-color: var(--clickablehover);
+}
+
+.custom-btn {
+    background-color: var(--clickable);
+    color: white;
+    border-color: black;
+}
+
+.custom-btn:hover {
+    background-color: var(--clickablehover);
+    color: white;
+    border-color: black;
 }

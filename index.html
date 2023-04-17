@@ -14,8 +14,8 @@
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
-<body>
-    <header class="custom-hnf m-3 p-3 has-text-centered box ">
+<body class="columns is-flex-direction-column is-fullheight-100vh">
+    <header class="custom-hnf has-text-centered box ">
         <h1 class="is-size-1-desktop has-text-weight-bold ">Weather Dashboard</h1>
     </header>
     <main>
@@ -23,12 +23,13 @@
         <div class="tile is-ancestor ">
             <!-- Container that will contain a tall column to store search data in several divs -->
             <div class="tile is-parent is-2-desktop m-3  ">
-                <div class="tile is-child box notification is-dark">
+                <!-- Container that holds the search button and the UL for searched cities -->
+                <div class="custom-search tile is-child box ">
                     <div class="content ">
-                        <p class="is-size-4-desktop title has-text-centered">Search for a City</p>
+                        <p class="is-size-6-mobile is-size-4-desktop title has-text-centered has-text-white">Search for a City</p>
                         <div class="content buttons is-centered ">
                             <input class="input mb-5">
-                            <button class="button is-responsive is-link is-hover">
+                            <button class="custom-btn button ">
                                 <span class="icon">
                                     <i class="fas fa-search-location"></i>
                                 </span>
@@ -39,25 +40,22 @@
                     </div>
                     <div class="has-text-centered">
                         <ul>
-                            <li class="custom-li">City 1</li>
-                            <li class="custom-li">City 2</li>
-                            <li class="custom-li">City 3</li>
-                            <li class="custom-li">City 4</li>
-                            <li class="custom-li">City 5</li>
+                            <li class="custom-li custom-clickable ">City 1</li>
+                            <li class="custom-li custom-clickable">City 2</li>
+                            <li class="custom-li custom-clickable">City 3</li>
+                            <li class="custom-li custom-clickable">City 4</li>
+                            <li class="custom-li custom-clickable">City 5</li>
                         </ul>
                         <hr class="custom-divider"> 
                     </div>
                 </div>
             </div>
 
-
-
-
             <!-- Wide column that contains two vertical tiles that will hold current and forecast weather data -->
             <div class="tile is-parent is-10 is-vertical my-3 m-1">
                 <!-- Vertical Tile for current weather data -->
-                <article class="tile is-child is box color notification is-dark">
-                    <p class="title">Selected City Current Weather </p>
+                <article class="custom-weather tile is-child is box ">
+                    <p class="title ">Selected City Current Weather </p>
                     <p class="subtitle">With some content</p>
                     <div class="content">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
@@ -94,108 +92,11 @@
                     </div>
                     <div class="content"></div>
                 </article>
-            </div>
-    
-            
+            </div>            
         </div>
-    </div>
-        
-    <footer class="custom-hnf m-3 p-3 has-text-centered box">
+    </main>
+    <footer class="custom-hnf m-3 has-text-centered box is-flex-align-items-flex-end mt-auto">
         <p>Weather Dashboard &copy; 2023. All rights reserved.</p>
     </footer>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-        <div class="row">
-            <div class="col-md col-xl-4">
-                <!-- Add project form and instructions 
-                <div class="card mb-3">
-                <h2 class="h4 card-header custom-card-header">Instructions</h2>
-                <div class="card-body">
-                    <p class="card-text">
-                    Click the button below to open a form and provide information
-                    for the following:
-                    </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Project Name</li>
-                    <li class="list-group-item">Project Type</li>
-                    <li class="list-group-item">Due Date</li>
-                </ul>
-                <div class="card-footer">
-                    <button
-                    class="btn btn-block btn-custom w-100"
-                    data-bs-toggle="modal"
-                    data-bs-target="#new-project-modal"
-                    >
-                    Add Project
-                    </button>
-                </div>
-                </div>
-            </div>
-
-            <div class="col-md col-xl-8">
-                <!-- Project Table -
-                <table class="table">
-                <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>Type</th>
-                    <th>Due</th>
-                    <th></th>
-                    </tr>
-                </thead>
-                <tbody id="project-display">
-                    <tr>
-                    <td>Project tracker</td>
-                    <td>Web Application (Front End)</td>
-                    <td>06/30/2022</td>
-                    <td><button class="btn btn-sm">X</button></td>
-                    </tr>
-                    <tr class="project-late">
-                    <td>Project tracker</td>
-                    <td>Web Application (Front End)</td>
-                    <td>06/30/2022</td>
-                    <td><button class="btn btn-sm">X</button></td>
-                    </tr>
-                    <tr class="project-today">
-                    <td>Project tracker</td>
-                    <td>Web Application (Front End)</td>
-                    <td>06/30/2022</td>
-                    <td><button class="btn btn-sm">X</button></td>
-                    </tr>
-                </tbody>
-                </table>
-            </div>
-            </div>
-
-    </main> -->
 </body>
 </html>

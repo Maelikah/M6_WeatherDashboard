@@ -44,7 +44,7 @@ Here is a screenshot of the deployed webpage for reference:
 ---
 - https://uigradients.com/
 - https://bulma.io/
-- https://www.freecodecamp.org/news/javascript-foreach-how-to-loop-through-an-array-in-js/
+- https://convertingcolors.com/
 - https://www.freecodecamp.org/news/javascript-dom-manipulation/
 - https://www.scaler.com/topics/javascript-dom-manipulation/
 - https://emojicombos.com/
