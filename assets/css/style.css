@@ -39,14 +39,12 @@ body {
     margin-bottom: 1rem;
     border: 1px solid black;
     color: white;
-}
-
-.custom-clickable {
+    list-style: none;
     cursor: pointer;
     background-color: var(--clickable)
 }
 
-.custom-clickable:hover {
+.custom-li:hover {
     background-color: var(--clickablehover);
 }
 
@@ -61,3 +59,4 @@ body {
     color: white;
     border-color: black;
 }
+
