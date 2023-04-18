@@ -1,14 +1,25 @@
 
-//var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948";
-
 // Define the variables needed for the OpenWeather and for the geocoding API requests as well as the API key 
 
 var apiKey = '4a31ba71a2f681e1cefe6e395d3fc948';
-var cityName = '';
+var cityName = [];
 // Define variables to traverse the DOM
 var searchUl = document.getElementById("custom-ul");
 
+// List functions to execute
 
+// Call function that loads previous searches  
+init ();
+
+// init () - Code for function that will load previous searches
+function init () {
+    var previousSearches = JSON.parse(localStorage.getItem("cities"))
+    if (previousSearches !== null) {
+        cityName = previousSearches;
+    }
+    // Call 
+    renderData();
+}
 
 
 // Add event listener for the search input when the user presses the Enter key
