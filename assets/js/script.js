@@ -1,24 +1,51 @@
-
 // Define the variables needed for the OpenWeather and for the geocoding API requests as well as the API key 
+var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948";
+var cityName = "";
+var cities = [];
 
-var apiKey = '4a31ba71a2f681e1cefe6e395d3fc948';
-var cityName = [];
 // Define variables to traverse the DOM
 var searchUl = document.getElementById("custom-ul");
 
-// List functions to execute
-
-// Call function that loads previous searches  
-init ();
+// List functions to execute: 
+init ();                    // Call function that loads previous searches  
 
 // init () - Code for function that will load previous searches
 function init () {
+
     var previousSearches = JSON.parse(localStorage.getItem("cities"))
+
     if (previousSearches !== null) {
-        cityName = previousSearches;
+        cities = previousSearches;
+        console.log("Contents of Previous Searches variable: " + previousSearches);
+        console.log("Contents of cities variable: " + cities);
     }
-    // Call 
-    renderData();
+
+    previousSearches.sort();
+
+    renderPrevSearches(); // Call function to create content related to previous searches stored in local storage
+}
+
+// renderPrevSearches() - Code for function that will create li elements showing previous searches in the html file
+function renderPrevSearches() {
+    
+    searchUl.innerHTML = "";
+    
+    if (cities == null) {
+        return;
+    } else {
+        
+        var newCities = [...new Set(cities)];   // Create a variable to store cities without duplicates by using the spread operator and set
+        for (var i=0; i<newCities.length; i++) {
+            var cityLi = newCities[i];
+            var newSearchedCity = document.createElement("li");
+            newSearchedCity.className = "custom-li";
+            newSearchedCity.textContent = cityLi;
+            console.log(newSearchedCity)
+            searchUl.appendChild(newSearchedCity);
+
+            displayPrevSearches();
+        } 
+    }
 }
 
 
@@ -42,11 +69,6 @@ document.getElementById("cityInput").addEventListener ("keypress", function(even
             cityName = document.getElementById("cityInput").value.toUpperCase();
             console.log("City name is: " +cityName);
 
-            // Call the function to add city to local storage
-            addCityToLocalStorage(cityName);
-
-            // Call function to get cities from local storage and append it into previous searches list
-           // appendCitytoPreviousSearches();
 
         }
     }  
