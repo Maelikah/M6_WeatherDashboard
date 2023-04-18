@@ -2,11 +2,11 @@
 
 ## Description
 ---
-Code Quiz Challenge. The purpose is to generate a JavaScript fundamentals quiz that uses local storage to store highscores and user initials, that shows a timer and alerts the user whether the selected choice was the correct or incorrect answer.
+Weather Dashborad Challenge. The purpose is to generate a Weather Dashboard that uses user input to make api calls to OpenWeather and display the current and 5 day forecast weather. CSS framework chosen for this was Bulma. Local storage is also used to stored previous city searches.
 
 ## Installation
 ---
-Installation not required, simply open up the JavaScript Fundamentals html file and click on the Start Quiz button. Answer the questions and submit your initials upon completion. Review highscores and clear the list if desired.
+Installation not required, simply open up the Weather Dashboard html file and type in a city to display the weather.
 
 ## Usage
 ---
@@ -45,8 +45,10 @@ Here is a screenshot of the deployed webpage for reference:
 - https://uigradients.com/
 - https://bulma.io/
 - https://convertingcolors.com/
-- https://www.freecodecamp.org/news/javascript-dom-manipulation/
-- https://www.scaler.com/topics/javascript-dom-manipulation/
+- https://javascript.info/fetch
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+- https://openweathermap.org/api/geocoding-api#direct_name_fields
+- https://openweathermap.org/forecast5
 - https://emojicombos.com/
 
 ## License
