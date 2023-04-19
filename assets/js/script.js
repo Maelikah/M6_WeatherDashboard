@@ -78,7 +78,7 @@ function renderPrevSearches() {
 function getCoordinates(city) {
 
     var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
-    var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`; // url from GeoCoding API Call
+    var apiUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`; // url for GeoCoding API Call
 
     // Fetch data from OpenWeatherMap Geocoding API
 
@@ -97,7 +97,9 @@ function getCoordinates(city) {
                 var lat = data[0].lat;
                 var lon = data[0].lon;
 
-                getWeatherData(lat, lon); // Call function to get weather data based on retrieved latitude and longitude values
+                getCurrentWeather(lat, lon); // Call function to get current weather data based on retrieved latitude and longitude values
+                
+                getForecasttWeather(lat, lon); // Call function to get forecast weather data based on retrieved latitude and longitude values
             
             } else {
 
@@ -106,26 +108,38 @@ function getCoordinates(city) {
         });
 }
 
-// Function to get weather data based on latitude and longitude
-function getWeatherData(lat, lon) {
-    var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
-    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+// Function to get current weather data based on latitude and longitude
 
-    // Fetch data from OpenWeatherMap API
+function getCurrentWeather(lat, lon) {
+
+    var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`; // url for current weather API Call
+
+    // Fetch data from OpenWeatherMap (current weather) API
+
     fetch(apiUrl)
+
         .then(function(response) {
-            if (response.ok) {
+            
                 return response.json();
-            } else {
-                throw new Error("Error: " + response.statusText);
-            }
         })
+
         .then(function(data) {
+
             console.log(data); // Display the retrieved weather data in the console
-            // Use the retrieved weather data as needed
-        })
-        .catch(function(error) {
-            console.log(error); // Display any errors that occurred during the API call
+
+            var currentCity = data.name; 
+            var dateObject = new Date(data.dt * 1000) // Date is in Unix timestamp, we need to convert it to milliseconds
+            var currentDate = dateObject.toLocaleDateString(); // Convert to date based on user locale.
+            var weatherIcon = data.weather[0].icon;
+
+            console.log("City Name: " + currentCity);
+            console.log("Current Date: " + currentDate);
+
+
+
+
+
         });
 }
 

@@ -49,6 +49,8 @@ Here is a screenshot of the deployed webpage for reference:
 - https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
 - https://openweathermap.org/api/geocoding-api#direct_name_fields
 - https://openweathermap.org/forecast5
+- https://www.w3schools.com/js/js_dates.asp
+- https://www.coderrocketfuel.com/article/convert-a-unix-timestamp-to-a-date-in-vanilla-javascript
 - https://emojicombos.com/
 
 ## License
