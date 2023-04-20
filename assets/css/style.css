@@ -20,6 +20,7 @@ body {
     background-color: var(--searchbox);
 }
 
+
 .custom-weather {
     background-color: var(--weatherbox);
 }

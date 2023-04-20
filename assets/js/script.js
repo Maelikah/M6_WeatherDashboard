@@ -6,6 +6,7 @@ var cities = [];
 // Define variables to traverse the DOM
 
 var searchUl = document.getElementById("custom-ul");
+var WeatherDiv = document.getElementById("weather-div");
 
 // List functions to execute: 
 
@@ -16,6 +17,8 @@ init ();                    // Call function that loads previous searches
 // init () - Code for function that will load previous searches
 
 function init () {
+
+   //WeatherDiv.style.display = "none"  // hide div contents
 
     var previousSearches = JSON.parse(localStorage.getItem("cities"))
 
@@ -99,7 +102,7 @@ function getCoordinates(city) {
 
                 getCurrentWeather(lat, lon); // Call function to get current weather data based on retrieved latitude and longitude values
                 
-                getForecasttWeather(lat, lon); // Call function to get forecast weather data based on retrieved latitude and longitude values
+                getForecastWeather(lat, lon); // Call function to get forecast weather data based on retrieved latitude and longitude values
             
             } else {
 
@@ -108,12 +111,12 @@ function getCoordinates(city) {
         });
 }
 
-// Function to get current weather data based on latitude and longitude
+// getCurrentWeather(lat, lon) - Function to get current weather data based on latitude and longitude
 
 function getCurrentWeather(lat, lon) {
 
     var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
-    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`; // url for current weather API Call, adding metric units as default
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`; // url for 5-day forecast weather API Call, adding metric units as default
 
     // Fetch data from OpenWeatherMap (current weather) API
 
@@ -146,7 +149,60 @@ function getCurrentWeather(lat, lon) {
         });
 }
 
+// getForecastWeather(lat, lon) - Function to get 5-day forecast weather data based on latitude and longitude
 
+function getForecastWeather(lat, lon) {
+
+    var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
+    var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`; // url for current weather API Call, adding metric units as default
+
+    // Fetch data from OpenWeatherMap (current weather) API
+
+    fetch(apiUrl)
+
+        .then(function(response) {
+            
+                return response.json();
+        })
+
+        .then(function(data) {
+
+            console.log(data); // Display the retrieved weather data in the console
+
+            // Loop through each forecast day
+
+            for (var i = 0; i<data.list.length; i++) {  // Forecast is inside  list
+
+                var forecastDay = data.list[i]; // Get data for each day
+                var dateObject = new Date(forecastDay.dt * 1000) // Date is in Unix timestamp, we need to convert it to milliseconds
+                var forecastDate = dateObject.toLocaleDateString(); // Convert to date based on user locale.
+                var weatherIcon = forecastDay.weather[0].icon;
+                var iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}.png` // Get the icon image directly from OpenWeather by inserting the icon value in the url that stores images
+                var forecastTemp = forecastDay.main.temp;
+                var forecastHumidity = forecastDay.main.humidity;
+                var forecastWind = forecastDay.wind.speed;
+
+                var dayTile = "day-" + (i + 1); // Set variable for each iteration to be used in each tile with matching id
+                document.getElementById(dayTile).innerHTML = `
+                <p class="">${forecastDate}</p>
+                <img src="${iconUrl}" alt="Weather Icon">
+                <p class="">Temperature: ${forecastTemp} &#8451;</p> 
+                <p class="">Humidity: ${forecastHumidity}%</p>
+                <p class="">Wind: ${forecastWind} m/s</p>
+            `;
+
+
+                
+            }
+            console.log("Forecast Day: " + forecastDay);
+                console.log("Forecast Date: " + forecastDate);
+                console.log("The icon URL is: " + iconUrl);
+                console.log("The forecast temperature is: " + forecastTemp);
+                console.log("The forecast humidity is: " + forecastHumidity + "%");
+                console.log("The forecast wind is: " + forecastWind + "m/s");
+        });
+
+}
 
 
 
