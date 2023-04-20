@@ -113,7 +113,7 @@ function getCoordinates(city) {
 function getCurrentWeather(lat, lon) {
 
     var apiKey = "4a31ba71a2f681e1cefe6e395d3fc948"; 
-    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`; // url for current weather API Call
+    var apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`; // url for current weather API Call, adding metric units as default
 
     // Fetch data from OpenWeatherMap (current weather) API
 
@@ -132,14 +132,17 @@ function getCurrentWeather(lat, lon) {
             var dateObject = new Date(data.dt * 1000) // Date is in Unix timestamp, we need to convert it to milliseconds
             var currentDate = dateObject.toLocaleDateString(); // Convert to date based on user locale.
             var weatherIcon = data.weather[0].icon;
+            var iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}.png` // Get the icon image directly from OpenWeather by inserting the icon value in the url that stores images
+            var currentTemp = data.main.temp;
+            var currentHumidity = data.main.humidity;
+            var currentWind = data.wind.speed;
 
             console.log("City Name: " + currentCity);
             console.log("Current Date: " + currentDate);
-
-
-
-
-
+            console.log("The icon URL is: " + iconUrl);
+            console.log("The current temperature is: " +currentTemp);
+            console.log("The current humidity is: " + currentHumidity + "%");
+            console.log("The current wind is: " + currentWind + "m/s");
         });
 }
 

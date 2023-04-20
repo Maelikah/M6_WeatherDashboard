@@ -51,6 +51,7 @@ Here is a screenshot of the deployed webpage for reference:
 - https://openweathermap.org/forecast5
 - https://www.w3schools.com/js/js_dates.asp
 - https://www.coderrocketfuel.com/article/convert-a-unix-timestamp-to-a-date-in-vanilla-javascript
+- https://openweathermap.org/weather-conditions#How-to-get-icon-URL
 - https://emojicombos.com/
 
 ## License
