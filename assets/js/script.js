@@ -147,13 +147,28 @@ function getCurrentWeather(lat, lon) {
             var currentWind = data.wind.speed;
 
             WeatherSection.innerHTML = `
-            <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-centered has-text-weight-bold">${currentCity} ${currentDate}</p>
-            <br>
-            <img src="${iconUrl}" alt="Weather Icon">
-            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Temperature: ${currentTemp} &#8451;</p>
-            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Humidity: ${currentHumidity}%</p>
-            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Wind Speed: ${currentWind} m/s</p>
-            <br>    
+            <!-- Vertical Tile for current weather data -->
+                <section id="current-weather" class="custom-weather tile is-child is box ">
+                    <div class="card">
+                        <div class="card-content ">
+                            <div class="columns is-vcentered custom-weather-banner">
+                                <div class="column is-narrow custom-weather-icon ">
+                                    <div class="is-flex is-justify-content-center is-align-items-center  ">
+                                        <figure class="image is-64x64">
+                                            <img src="${iconUrl}" alt="Weather Icon">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-weight-bold">${currentCity}</p>
+                                </div>
+                            </div>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Temp: ${currentTemp} &#8451;</p>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Humidity: ${currentHumidity}%</p>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Wind Speed: ${currentWind}m/s</p>
+                        </div>
+                    </div>
+                </section>
             `;
 
             console.log("City Name: " + currentCity);
@@ -218,11 +233,11 @@ function getForecastWeather(lat, lon) {
                 dayTile.innerHTML = `
                     <p class="has-text-centered has-text-weight-bold">${forecastDate}</p>
                     <div class="is-flex is-justify-content-center is-align-items-center">
-                        <img class="has-text-centered" src="${iconUrl}" alt="Weather Icon">
+                        <img class ="custom-weather-banner" src="${iconUrl}" alt="Weather Icon">
                     </div>
-                    <p class="has-text-centered is-size-7-mobile ">Temperature: ${forecastTemp} &#8451;</p>
+                    <p class="has-text-centered is-size-7-mobile ">Temp: ${forecastTemp} &#8451;</p>
                     <p class="has-text-centered is-size-7-mobile ">Humidity: ${forecastHumidity}%</p>
-                    <p class="has-text-centered is-size-7-mobile ">Wind: ${forecastWind} m/s</p>
+                    <p class="has-text-centered is-size-7-mobile ">Wind: ${forecastWind}m/s</p>
                 `;
             }
         });
