@@ -54,19 +54,50 @@
             <!-- Wide column that contains two vertical tiles that will hold current and forecast weather data -->
             <div id="weather-div" class="tile is-parent is-9 is-vertical m-5">
                 <!-- Vertical Tile for current weather data -->
-                <section class="custom-weather tile is-child is box has-text-white">
-                    <p class="title has-text-white	 ">Selected City Current Weather </p>
-                    <br>
-                    <p class="subtitle has-text-white">With some content</p>
-                    <br>
+                <section id="current-weather" class="custom-weather tile is-child is box ">
+                    <div class="card">
+                        <div class="card-content ">
+                            <div class="columns is-vcentered custom-weather-banner">
+                                <div class="column is-narrow custom-weather-icon ">
+                                    <div class="is-flex is-justify-content-center is-align-items-center  ">
+                                        <figure class="image is-64x64">
+                                            <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
+                                        </figure>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-weight-bold">Selected City</p>
+                                </div>
+                            </div>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Temperature: 27 .C</p>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Humidity: 20%</p>
+                            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Wind Speed: 5m/s</p>
+                        </div>
+                    </div>
                 </section>
                 <!-- Vertical Tile for 5 day weather forecast -->
                 <section class="custom-forecast tile is-child box">
-                    <p class="title has-text-white">5 day Weather Forecast</p>
+                    <div class="card-content  ">
+                        <div class="columns is-vcentered custom-weather-banner">
+                            <div class="column is-narrow custom-weather-icon ">
+                                <div class="is-flex is-justify-content-center is-align-items-center  ">
+                                    <figure class="image is-64x64">
+                                        <img src="https://openweathermap.org/img/wn/10d.png" alt="Weather Icon">
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-weight-bold">5 day Weather Forecast</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="m-3 is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly">
-                        <div id="day-1" class="tile is-child box is-12-mobile is-2">
-                            <p class="">One</p>
-                            <p class="">Subtitle</p>
+                        <div id="day-1" class="tile is-child box is-12-mobile is-2 has-background-grey-light">
+                            <p class="is-size-8-mobile has-text-centered has-text-weight-bold">One</p>
+                            <div class="is-flex is-justify-content-center is-align-items-center"> <!-- Add is-flex, is-justify-content-center, and is-align-items-center classes -->
+                            <img src="https://openweathermap.org/img/wn/10d.png">
+                            </div>
+                            <p class="is-size-7-mobile has-text-centered ">Temperature: 27`C</p>
                         </div>
                         <div id="day-2" class="tile is-child box is-12-mobile is-2 ">
                             <p class="">Two</p>
@@ -85,7 +116,7 @@
                             <p class="">Subtitle</p>
                         </div>
                     </div>
-                    <div class="content"></div>
+                    
                 </section>
             </div>            
         </div>

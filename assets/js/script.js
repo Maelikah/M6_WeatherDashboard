@@ -7,6 +7,12 @@ var cities = [];
 
 var searchUl = document.getElementById("custom-ul");
 var WeatherDiv = document.getElementById("weather-div");
+var WeatherSection = document.getElementById("current-weather");
+var day1Div = document.getElementById("day-1");
+var day2Div = document.getElementById("day-2");
+var day3Div = document.getElementById("day-3");
+var day4Div = document.getElementById("day-4");
+var day5Div = document.getElementById("day-5");
 
 // List functions to execute: 
 
@@ -140,6 +146,16 @@ function getCurrentWeather(lat, lon) {
             var currentHumidity = data.main.humidity;
             var currentWind = data.wind.speed;
 
+            WeatherSection.innerHTML = `
+            <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-centered has-text-weight-bold">${currentCity} ${currentDate}</p>
+            <br>
+            <img src="${iconUrl}" alt="Weather Icon">
+            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Temperature: ${currentTemp} &#8451;</p>
+            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Humidity: ${currentHumidity}%</p>
+            <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop subtitle has-text-white  has-text-weight-bold">Wind Speed: ${currentWind} m/s</p>
+            <br>    
+            `;
+
             console.log("City Name: " + currentCity);
             console.log("Current Date: " + currentDate);
             console.log("The icon URL is: " + iconUrl);
@@ -166,44 +182,51 @@ function getForecastWeather(lat, lon) {
         })
 
         .then(function(data) {
-
-            console.log(data); // Display the retrieved weather data in the console
-
-            // Loop through each forecast day
-
-            for (var i = 0; i<data.list.length; i++) {  // Forecast is inside  list
-
-                var forecastDay = data.list[i]; // Get data for each day
-                var dateObject = new Date(forecastDay.dt * 1000) // Date is in Unix timestamp, we need to convert it to milliseconds
-                var forecastDate = dateObject.toLocaleDateString(); // Convert to date based on user locale.
+            for (var i = 0; i < data.list.length; i++) {
+                var forecastDay = data.list[i];
+                var dateObject = new Date(forecastDay.dt * 1000);
+                var forecastDate = dateObject.toLocaleDateString();
                 var weatherIcon = forecastDay.weather[0].icon;
-                var iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}.png` // Get the icon image directly from OpenWeather by inserting the icon value in the url that stores images
+                var iconUrl = `https://openweathermap.org/img/wn/${weatherIcon}.png`;
                 var forecastTemp = forecastDay.main.temp;
                 var forecastHumidity = forecastDay.main.humidity;
                 var forecastWind = forecastDay.wind.speed;
-
-                var dayTile = "day-" + (i + 1); // Set variable for each iteration to be used in each tile with matching id
-                document.getElementById(dayTile).innerHTML = `
-                <p class="">${forecastDate}</p>
-                <img src="${iconUrl}" alt="Weather Icon">
-                <p class="">Temperature: ${forecastTemp} &#8451;</p> 
-                <p class="">Humidity: ${forecastHumidity}%</p>
-                <p class="">Wind: ${forecastWind} m/s</p>
-            `;
-
-
-                
+    
+                // Update innerHTML of respective tile
+                var dayTile;
+                switch (i) {
+                    case 0:
+                        dayTile = day1Div;
+                        break;
+                    case 8:
+                        dayTile = day2Div;
+                        break;
+                    case 16:
+                        dayTile = day3Div;
+                        break;
+                    case 24:
+                        dayTile = day4Div;
+                        break;
+                    case 32:
+                        dayTile = day5Div;
+                        break;
+                    default:
+                        continue; // Skip other indices not needed
+                }
+    
+                // Update innerHTML of respective tile with forecast data
+                dayTile.innerHTML = `
+                    <p class="has-text-centered has-text-weight-bold">${forecastDate}</p>
+                    <div class="is-flex is-justify-content-center is-align-items-center">
+                        <img class="has-text-centered" src="${iconUrl}" alt="Weather Icon">
+                    </div>
+                    <p class="has-text-centered is-size-7-mobile ">Temperature: ${forecastTemp} &#8451;</p>
+                    <p class="has-text-centered is-size-7-mobile ">Humidity: ${forecastHumidity}%</p>
+                    <p class="has-text-centered is-size-7-mobile ">Wind: ${forecastWind} m/s</p>
+                `;
             }
-            console.log("Forecast Day: " + forecastDay);
-                console.log("Forecast Date: " + forecastDate);
-                console.log("The icon URL is: " + iconUrl);
-                console.log("The forecast temperature is: " + forecastTemp);
-                console.log("The forecast humidity is: " + forecastHumidity + "%");
-                console.log("The forecast wind is: " + forecastWind + "m/s");
         });
-
-}
-
+    }
 
 
 

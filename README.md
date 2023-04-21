@@ -53,6 +53,8 @@ Here is a screenshot of the deployed webpage for reference:
 - https://www.coderrocketfuel.com/article/convert-a-unix-timestamp-to-a-date-in-vanilla-javascript
 - https://openweathermap.org/weather-conditions#How-to-get-icon-URL
 - https://www.toptal.com/designers/htmlarrows/symbols/degree-celsius/
+- https://javascript.info/date
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
 - https://emojicombos.com/
 
 ## License
