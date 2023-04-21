@@ -1,4 +1,4 @@
-// Define the variables needed for the OpenWeather and for the geocoding API requests as well as the API key 
+// Define the variables needed for the OpenWeather and for the geocoding API requests as well as the API key. 
 
 var city = "";
 var cities = [];

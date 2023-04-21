@@ -19,10 +19,7 @@ Installation not required, simply open up the Weather Dashboard html file and ty
         - THEN am presented with the city name, date, icon representing weather, temperature, wind speed and humidity
     - WHEN I view future weather conditions for that city
         - THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-    - WHEN I click on a city in the seaerch history
-        - THEN the game is over
-    - WHEN the game is over
-        - THEN I am again presented with current and future conditions for that cit
+    
 
 ---
 
