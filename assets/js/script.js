@@ -1,10 +1,11 @@
 // Define the variables needed for the OpenWeather and for the geocoding API requests as well as the API key 
 
-var cityName = "";
+var city = "";
 var cities = [];
 
 // Define variables to traverse the DOM
-
+var searchButton = document.getElementById(citySearch);
+var searchTextbox = document.getElementById(cityInput);
 var searchUl = document.getElementById("custom-ul");
 var WeatherDiv = document.getElementById("weather-div");
 var WeatherSection = document.getElementById("current-weather");
@@ -18,27 +19,37 @@ var day5Div = document.getElementById("day-5");
 
 init ();                    // Call function that loads previous searches  
 
-//displayCurrentSearch();     // Call function that displays current city search on click or enter
+
+
+// Functions : 
 
 // init () - Code for function that will load previous searches
 
 function init () {
 
-   //WeatherDiv.style.display = "none"  // hide div contents
+   WeatherDiv.style.display = "none"  // hide div contents
 
-    var previousSearches = JSON.parse(localStorage.getItem("cities"))
+    var previousSearches = JSON.parse(localStorage.getItem("cities"));
 
     if (previousSearches !== null) {
 
         cities = previousSearches;
-        console.log("Contents of Previous Searches variable: " + previousSearches);
-        console.log("Contents of cities variable: " + cities);
+        previousSearches.sort(); // Sort searches alphabetically
     }
 
-    previousSearches.sort();
+    
 
     renderPrevSearches(); // Call function to create content related to previous searches stored in local storage
 }
+
+
+// localStoreCities() - Code for funtion that will store input data inside the cities array into the local storage
+
+function localStoreCities() {
+
+    localStorage.setItem("cities", JSON.stringify(cities));
+}
+
 
 // renderPrevSearches() - Code for function that will create li elements showing previous searches in the html file
 
@@ -59,7 +70,6 @@ function renderPrevSearches() {
         var newSearchedCity = document.createElement("li");
         newSearchedCity.className = "custom-li";
         newSearchedCity.textContent = cityLi;
-        console.log(newSearchedCity);
         searchUl.appendChild(newSearchedCity);
     }
 
@@ -74,9 +84,7 @@ function renderPrevSearches() {
         event.preventDefault();
         city = this.textContent;  // this is the value that will be used for the api call, so it MUST be called "city" 
         
-        console.log(city);
         getCoordinates(city);        // Call the function to get the weather data
-
         });
     });
     }
@@ -160,7 +168,8 @@ function getCurrentWeather(lat, lon) {
                                     </div>
                                 </div>
                                 <div class="column">
-                                    <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-weight-bold">${currentCity}</p>
+                                    <p class="is-size-4-mobile is-size-3-tablet is-size-2-desktop title has-text-white has-text-weight-bold">${currentCity}  ${currentDate}</p>
+                                    
                                 </div>
                             </div>
                             <p class="is-size-5-mobile is-size-4-tablet is-size-3-desktop  ">Temp: ${currentTemp} &#8451;</p>
@@ -241,16 +250,10 @@ function getForecastWeather(lat, lon) {
                 `;
             }
         });
+        WeatherDiv.style.display = "block"  // hide div contents
     }
 
-
-
-
-
-
-
-
-
+// Event Listeners
 
 // Add event listener for the search input when the user presses the Enter key
 document.getElementById("cityInput").addEventListener ("keypress", function(event) {
@@ -269,92 +272,36 @@ document.getElementById("cityInput").addEventListener ("keypress", function(even
 
         } else {
             event.preventDefault();
-            cityName = document.getElementById("cityInput").value.toUpperCase();
-            console.log("City name is: " +cityName);
-
-
+            city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
+            cities.push(city);
+            localStoreCities();
+            getCoordinates(city);    
         }
     }  
 });
 
-
+// Add event listener for the search button when the user inputs data an clicks on search
 document.getElementById("citySearch").addEventListener ("click", function(event) {
-    event.preventDefault();
-    cityName = document.getElementById("cityInput").value;
-    console.log("City name is: " +cityName);
+    
+    city = document.getElementById("cityInput").value.toUpperCase();
 
+    if (city === "") {
+        event.preventDefault();
+        var warningModal = document.getElementById("warningModal");
+        warningModal.className = "modal is-active";
+        warningModal.querySelector(".modal-background").addEventListener("click", function() {
+        warningModal.className = "modal";
+        });
+        warningModal.querySelector(".modal-close").addEventListener("click", function () {
+            warningModal.className = "modal";
+            event.stopPropagation(); 
+        });
+
+    } else {
+        event.preventDefault();
+           // city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
+            cities.push(city);
+            localStoreCities();
+            getCoordinates(city);    
+        }
 });
-
-// // Create function to add new city into the storedCities array and update local storage
-// function addCityToLocalStorage(city) {
-//     // Define variables for local storage
-//     var maxCities = 10;
-//     var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
-//     console.log("storedCities value is : " + storedCities);
-
-//     // Check if city already exists in the array
-//     if (!storedCities.includes(city)) {
-//         // Add city to the beginning of the array
-//         storedCities.unshift(city);
-//         // Sort the array alphabetically
-//         storedCities.sort();
-//         // Limit the array to the maximum number of cities
-//         if (storedCities.length > maxCities) {
-//         storedCities.pop();
-//     }
-//     // Update localStorage with the updated array
-//     var addCities= localStorage.setItem("cities", JSON.stringify(storedCities));
-//     console.log("Local Storage is : " + addCities);
-//     }
-// }
-
-// // Create function to get data from local storage and append it in the html page
-
-// function appendCitytoPreviousSearches() {
-//     var retrieveCities = localStorage.getItem("cities");
-//     retrieveCities = JSON.parse(retrieveCities);
-
-//     if (retrieveCities !== null) {
-//         for (var i=0; i<retrieveCities.length; i++) {
-//             var newSearchedCity = document.createElement("li");
-//             newSearchedCity.className = "custom-li";
-//             newSearchedCity.textContent = retrieveCities;
-//             console.log(newSearchedCity)
-//             searchUl.appendChild(newSearchedCity);
-//         } 
-//     }
-// }
-
-
-            
-
-
-
-
-
-
-
-
-
-// // Define the OpenWeatherMap Geocoding API endpoint
-// const geocodingEndpoint = 'https://api.openweathermap.org/geo/1.0/direct';
-
-// // Build the URL for the geocoding API request
-// const geocodingUrl = geocodingEndpoint + "?q=" + encodeURIComponent(cityName) + '&appid=' + apiKey;
-
-// // Fetch geocoding data from OpenWeatherMap API
-// fetch(geocodingUrl)
-//     .then(response => {
-//         if (!response.ok) {
-//         throw new Error('Failed to fetch geocoding data');
-//         }
-//         return response.json();
-//     })
-//     .then(data => {
-//         // Process the geocoding data as needed
-//         console.log('Geocoding data:', data);
-//     })
-//     .catch(error => {
-//         console.error(error);
-//     });
-
