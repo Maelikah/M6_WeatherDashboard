@@ -34,7 +34,7 @@ https://maelikah.github.io/M6_WeatherDashboard
 Here is a screenshot of the deployed webpage for reference:
 
 
-![Screenshot](Assets/images/screenshot.png)
+![Screenshot](./assets/images/screenshot.png)
 
 
 ## Credits

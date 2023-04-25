@@ -19,8 +19,6 @@ var day5Div = document.getElementById("day-5");
 
 init ();                    // Call function that loads previous searches  
 
-
-
 // Functions : 
 
 // init () - Code for function that will load previous searches
