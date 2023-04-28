@@ -273,7 +273,10 @@ document.getElementById("cityInput").addEventListener ("keypress", function(even
             city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
             cities.push(city);
             localStoreCities();
-            getCoordinates(city);    
+            renderPrevSearches();
+            getCoordinates(city); 
+            
+            
         }
     }  
 });
@@ -296,10 +299,11 @@ document.getElementById("citySearch").addEventListener ("click", function(event)
         });
 
     } else {
-        event.preventDefault();
-           // city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
+       // event.preventDefault();
+            city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
             cities.push(city);
             localStoreCities();
+            renderPrevSearches();
             getCoordinates(city);    
         }
 });
