@@ -299,7 +299,7 @@ document.getElementById("citySearch").addEventListener ("click", function(event)
         });
 
     } else {
-       // event.preventDefault();
+            event.preventDefault();
             city = document.getElementById("cityInput").value.toUpperCase(); // this is the value that will be used for the api call, so it MUST be called "city"
             cities.push(city);
             localStoreCities();
